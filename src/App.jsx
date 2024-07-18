@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ZodiacSign from './components/ZodiacSign';
+import HoroscopeResult from './components/HoroscopeResult';
 import './App.css';
 
 const signs = [
@@ -43,25 +45,25 @@ const App = () => {
     .catch(error => console.error('Error:', error));
   };
 
+  const handleBack = () => {
+    setHoroscope(null);
+    setSelectedSign('');
+  };
+
   return (
     <div className="App">
       <h1>Horoscope App</h1>
-      <div className="signs">
-        {signs.map(sign => (
-          <button key={sign} onClick={() => setSelectedSign(sign)}>
-            <img src={`/images/${sign}.png`} alt={sign} />
-            <p>{sign}</p>
-          </button>
-        ))}
-      </div>
-      {horoscope && (
-        <div className="horoscopeResult">
-          <h2>{horoscope.name}'s Horoscope</h2>
-          <pre>{JSON.stringify(horoscope, null, 2)}</pre>
+      {!selectedSign && (
+        <div className="signs">
+          {signs.map(sign => (
+            <ZodiacSign key={sign} sign={sign} onClick={setSelectedSign} />
+          ))}
         </div>
       )}
+      {horoscope && <HoroscopeResult horoscope={horoscope} onBack={handleBack} />}
     </div>
   );
 };
 
 export default App;
+
