@@ -37,6 +37,12 @@ const App = () => {
       }
 
       const data = await response.json();
+
+      // Check for authorization error
+      if (data.success === 0) {
+        throw new Error(data.message);
+      }
+
       setHoroscope(data);
     } catch (error) {
       console.error('Error fetching horoscope:', error.message);
@@ -76,4 +82,3 @@ const App = () => {
 };
 
 export default App;
-
