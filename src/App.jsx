@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useRef, useEffect } from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const signs = [
+  'aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo',
+  'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces'
+];
+
+const App = () => {
+  const [horoscope, setHoroscope] = useState(null);
+  const [selectedSign, setSelectedSign] = useState('');
+  const apiHost = useRef('vedicrishi-standard-horoscope-plan-v1.p.rapidapi.com');
+  const apiKey = useRef('bec41e5622msh4cb29f91e88f271p171632jsn8c892f8dba5f');
+
+  useEffect(() => {
+    if (selectedSign) {
+      fetchHoroscope(selectedSign);
+    }
+  }, [selectedSign]);
+
+  const fetchHoroscope = (sign) => {
+    fetch(`https://${apiHost.current}/numero_table/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-rapidapi-host': apiHost.current,
+        'x-rapidapi-key': apiKey.current,
+      },
+      body: JSON.stringify({
+        "day": "25",
+        "month": "12",
+        "year": "1988",
+        "hour": "10",
+        "min": "12",
+        "lat": "25.123",
+        "lon": "82.34",
+        "tzone": "5.5",
+        "name": sign
+      })
+    })
+    .then(response => response.json())
+    .then(data => setHoroscope(data))
+    .catch(error => console.error('Error:', error));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>Horoscope App</h1>
+      <div className="signs">
+        {signs.map(sign => (
+          <button key={sign} onClick={() => setSelectedSign(sign)}>
+            <img src={`/images/${sign}.png`} alt={sign} />
+            <p>{sign}</p>
+          </button>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      {horoscope && (
+        <div className="horoscopeResult">
+          <h2>{horoscope.name}'s Horoscope</h2>
+          <pre>{JSON.stringify(horoscope, null, 2)}</pre>
+        </div>
+      )}
+    </div>
+  );
+};
 
-export default App
+export default App;
