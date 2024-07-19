@@ -1,28 +1,11 @@
-/* Container for zodiac signs */
-.zodiac-container {
-  display: flex; /* Align items horizontally in a row */
-  flex-wrap: wrap; /* Allow wrapping onto multiple lines if needed */
-  gap: 16px; /* Space between items */
-  justify-content: center; /* Center items horizontally */
-  padding: 20px; /* Optional padding */
+/* src/index.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Individual zodiac sign item */
-.zodiac-sign {
-  display: flex;
-  flex-direction: column; /* Stack image and text vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center;
-  cursor: pointer;
-}
-
-/* Image styling */
-.zodiac-sign img {
-  width: 100px; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-/* Text below image */
-.zodiac-sign p {
-  margin: 8px 0 0; /* Space below the image */
+h1 {
+  color: #333;
 }
