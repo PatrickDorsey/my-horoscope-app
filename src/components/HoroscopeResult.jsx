@@ -1,11 +1,19 @@
 import React from 'react';
 
-const HoroscopeResult = ({ horoscope, onBack }) => (
-  <div className="horoscopeResult">
-    <button onClick={onBack}>Back to Sign Selection</button>
-    <h2>{horoscope.name}'s Horoscope</h2>
-    <pre>{JSON.stringify(horoscope, null, 2)}</pre>
-  </div>
-);
+const HoroscopeResult = ({ horoscope, onBack }) => {
+  return (
+    <div className="horoscope-result">
+      <button onClick={onBack}>Back</button>
+      {horoscope.error ? (
+        <p>Error: {horoscope.error}</p>
+      ) : (
+        <>
+          <h2>{horoscope.date}</h2> {/* Assuming 'date' is a key in the horoscope data */}
+          <p>{horoscope.horoscope}</p> {/* Assuming 'horoscope' is a key containing the actual horoscope text */}
+        </>
+      )}
+    </div>
+  );
+};
 
 export default HoroscopeResult;

@@ -1,38 +1,39 @@
 .App {
   text-align: center;
-  background-color: red; /* Set red background color */
-  height: 100vh; /* Ensure full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 20px;
 }
 
 .signs {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-button {
-  border: none;
-  background: none;
+.zodiac-sign {
   cursor: pointer;
-  margin: 10px;
-}
-
-img {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   width: 100px;
-  height: 100px;
+  text-align: center;
 }
 
-.horoscopeResult {
+.zodiac-sign img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.horoscope-result {
   margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-.horoscopeResult button {
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
+.horoscope-result button {
+  margin-bottom: 10px;
 }
-
