@@ -8,8 +8,8 @@ const HoroscopeResult = ({ horoscope, onBack }) => {
         <p>Error: {horoscope.error}</p>
       ) : (
         <>
-          <h2>{horoscope.date}</h2> {/* Assuming 'date' is a key in the horoscope data */}
-          <p>{horoscope.horoscope}</p> {/* Assuming 'horoscope' is a key containing the actual horoscope text */}
+          <h2>{horoscope.dateRange}</h2>
+          <p>{horoscope.description}</p>
         </>
       )}
     </div>

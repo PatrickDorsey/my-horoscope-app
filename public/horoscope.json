@@ -2,73 +2,73 @@
     {
       "name": "Aries",
       "dateRange": "March 21 - April 19",
-      "image": "aries.jpg",
+      "image": "/images/aries.jpg",
       "description": "Aries is the first sign of the zodiac, symbolizing leadership and courage."
     },
     {
       "name": "Taurus",
       "dateRange": "April 20 - May 20",
-      "image": "public/images/taurus.jpg",
+      "image": "/images/taurus.jpg",
       "description": "Taurus is the second sign of the zodiac, symbolizing strength and reliability."
     },
     {
       "name": "Gemini",
       "dateRange": "May 21 - June 20",
-      "image": "public/images/gemini.jpg",
+      "image": "/images/gemini.jpg",
       "description": "Gemini is the third sign of the zodiac, symbolizing communication and versatility."
     },
     {
       "name": "Cancer",
       "dateRange": "June 21 - July 22",
-      "image": "public/images/cancer.jpg",
+      "image": "/images/cancer.jpg",
       "description": "Cancer is the fourth sign of the zodiac, symbolizing nurturing and sensitivity."
     },
     {
       "name": "Leo",
       "dateRange": "July 23 - August 22",
-      "image": "public/images/leo.jpg",
+      "image": "/images/leo.jpg",
       "description": "Leo is the fifth sign of the zodiac, symbolizing creativity and passion."
     },
     {
       "name": "Virgo",
       "dateRange": "August 23 - September 22",
-      "image": "public/images/virgo.jpg",
+      "image": "/images/virgo.jpg",
       "description": "Virgo is the sixth sign of the zodiac, symbolizing practicality and diligence."
     },
     {
       "name": "Libra",
       "dateRange": "September 23 - October 22",
-      "image": "public/images/libra.jpg",
+      "image": "/images/libra.jpg",
       "description": "Libra is the seventh sign of the zodiac, symbolizing balance and harmony."
     },
     {
       "name": "Scorpio",
       "dateRange": "October 23 - November 21",
-      "image": "public/images/scorpio.jpg",
+      "image": "/images/scorpio.jpg",
       "description": "Scorpio is the eighth sign of the zodiac, symbolizing intensity and transformation."
     },
     {
       "name": "Sagittarius",
       "dateRange": "November 22 - December 21",
-      "image": "public/images/sagittarius.jpg",
+      "image": "/images/sagittarius.jpg",
       "description": "Sagittarius is the ninth sign of the zodiac, symbolizing exploration and wisdom."
     },
     {
       "name": "Capricorn",
       "dateRange": "December 22 - January 19",
-      "image": "public/images/capricorn.jpg",
+      "image": "/images/capricorn.jpg",
       "description": "Capricorn is the tenth sign of the zodiac, symbolizing ambition and discipline."
     },
     {
       "name": "Aquarius",
       "dateRange": "January 20 - February 18",
-      "image": "public/images/aquarius.jpg",
+      "image": "/images/aquarius.jpg",
       "description": "Aquarius is the eleventh sign of the zodiac, symbolizing innovation and humanitarianism."
     },
     {
       "name": "Pisces",
       "dateRange": "February 19 - March 20",
-      "image": "public/images/pisces.jpg",
+      "image": "/images/pisces.jpg",
       "description": "Pisces is the twelfth sign of the zodiac, symbolizing empathy and imagination."
     }
   ]
