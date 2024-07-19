@@ -68,7 +68,7 @@
     {
       "name": "Pisces",
       "dateRange": "February 19 - March 20",
-      "image": "/images/pisces.jpg",
+      "image": "/public/images/pisces.jpg",
       "description": "Pisces is the twelfth sign of the zodiac, symbolizing empathy and imagination."
     }
   ]

@@ -1,50 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ZodiacSign from './components/ZodiacSign';
 import HoroscopeResult from './components/HoroscopeResult';
-import './App.css'; // Assuming you have some basic styling
+import './index.css'; // Ensure the CSS file is imported
 
 const App = () => {
   const [horoscopes, setHoroscopes] = useState([]);
   const [selectedSign, setSelectedSign] = useState(null);
+  const [horoscope, setHoroscope] = useState(null);
 
   useEffect(() => {
     fetch('/horoscope.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => setHoroscopes(data))
-      .catch(error => console.error('Error fetching the horoscope data:', error));
+      .catch(error => console.error('Error fetching horoscope data:', error));
   }, []);
 
   const handleSignClick = (sign) => {
     setSelectedSign(sign);
+    // Fetch or set the horoscope based on the selected sign
+    // For example:
+    setHoroscope({
+      date: 'Today',
+      horoscope: `This is the horoscope for ${sign}.`
+    });
   };
 
-  const handleBackClick = () => {
+  const handleBack = () => {
     setSelectedSign(null);
+    setHoroscope(null);
   };
 
   return (
-    <div className="app">
-      <h1>Horoscope Signs</h1>
-      {selectedSign ? (
-        <HoroscopeResult
-          horoscope={horoscopes.find(h => h.name === selectedSign)}
-          onBack={handleBackClick}
-        />
-      ) : (
-        <div className="zodiac-signs">
+    <div>
+      {!selectedSign ? (
+        <div className="zodiac-container">
           {horoscopes.map((sign, index) => (
             <ZodiacSign
               key={index}
-              sign={sign.name}
-              onClick={() => handleSignClick(sign.name)}
+              sign={sign}
+              onClick={() => handleSignClick(sign)}
             />
           ))}
         </div>
+      ) : (
+        <HoroscopeResult horoscope={horoscope} onBack={handleBack} />
       )}
     </div>
   );

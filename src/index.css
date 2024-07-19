@@ -1,61 +1,28 @@
-/* CSS reset to ensure consistency across different browsers */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Container for zodiac signs */
+.zodiac-container {
+  display: flex; /* Align items horizontally in a row */
+  flex-wrap: wrap; /* Allow wrapping onto multiple lines if needed */
+  gap: 16px; /* Space between items */
+  justify-content: center; /* Center items horizontally */
+  padding: 20px; /* Optional padding */
 }
 
-/* Apply a background color to the body */
-body {
-  font-family: Arial, sans-serif;
-  background-color: red; /* Set the background color to red */
-  color: #333;
-}
-
-/* Style for the root element */
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.App {
-  text-align: center;
-  margin: 20px;
-}
-
-.signs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
+/* Individual zodiac sign item */
 .zodiac-sign {
-  cursor: pointer;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100px;
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center content horizontally */
   text-align: center;
+  cursor: pointer;
 }
 
+/* Image styling */
 .zodiac-sign img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
+  width: 100px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
 }
 
-.horoscope-result {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.horoscope-result button {
-  margin-bottom: 10px;
+/* Text below image */
+.zodiac-sign p {
+  margin: 8px 0 0; /* Space below the image */
 }
