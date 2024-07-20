@@ -1,7 +1,5 @@
 // src/components/HoroscopeResult.jsx
 import React from 'react';
-import './index.css';
-
 const HoroscopeResult = ({ sign, onBack }) => {
   return (
     <div className="horoscope-result">

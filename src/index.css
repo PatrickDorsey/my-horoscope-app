@@ -1,9 +1,10 @@
-/* src/index.css */
+/* Existing global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #FFA500; /* Orange background color */
 }
 
 h1 {
