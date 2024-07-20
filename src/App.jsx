@@ -3,11 +3,29 @@ import React, { useState } from 'react';
 import ZodiacSign from './components/ZodiacSign';
 import HoroscopeResult from './components/HoroscopeResult';
 import UserInputForm from './components/UserInputForm';
-import horoscopeData from '../public/horoscope.json';
 import './App.css';
+
+// Load the horoscope data from the public folder
+const fetchHoroscopeData = async () => {
+  const response = await fetch('/horoscope.json');
+  return response.json();
+};
 
 const App = () => {
   const [selectedSign, setSelectedSign] = useState(null);
+  const [horoscopeData, setHoroscopeData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch horoscope data on component mount
+  React.useEffect(() => {
+    const getHoroscopeData = async () => {
+      const data = await fetchHoroscopeData();
+      setHoroscopeData(data);
+      setLoading(false);
+    };
+
+    getHoroscopeData();
+  }, []);
 
   const handleSignClick = (sign) => {
     setSelectedSign(sign);
@@ -18,7 +36,7 @@ const App = () => {
   };
 
   const handleDateSubmit = (day, month) => {
-    const sign = horoscopeData.find(sign => {
+    const sign = horoscopeData.find((sign) => {
       const [startMonth, startDay] = sign.dateRange.split(' - ')[0].split(' ');
       const [endMonth, endDay] = sign.dateRange.split(' - ')[1].split(' ');
 
@@ -33,6 +51,10 @@ const App = () => {
       setSelectedSign(sign);
     }
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="app">
