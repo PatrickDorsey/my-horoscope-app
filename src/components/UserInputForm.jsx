@@ -1,27 +1,41 @@
 import React, { useState } from 'react';
+import './UserInputForm.jsx';
 
 const UserInputForm = ({ onSubmit }) => {
-  const [birthdate, setBirthdate] = useState('');
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const birthdate = `${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
     onSubmit(birthdate);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="user-input-form">
-      <h2>Enter Your Birthdate</h2>
-      <div>
-        <label htmlFor="birthdate">Birthdate:</label>
+    <form className="user-input-form" onSubmit={handleSubmit}>
+      <label>
+        Day:
         <input
-          type="date"
-          id="birthdate"
-          value={birthdate}
-          onChange={(e) => setBirthdate(e.target.value)}
+          type="number"
+          value={day}
+          onChange={(e) => setDay(e.target.value)}
           required
+          min="1"
+          max="31"
         />
-      </div>
-      <button type="submit">Submit</button>
+      </label>
+      <label>
+        Month:
+        <input
+          type="number"
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
+          required
+          min="1"
+          max="12"
+        />
+      </label>
+      <button type="submit">Enter</button>
     </form>
   );
 };
