@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import './HoroscopeResult.css'; // Ensure the CSS file is imported
+import './HoroscopeResult.css';  
 
 const HoroscopeResult = ({ sign, onBack }) => {
-  const { name, image, dateRange, description, color, backgroundImage } = sign;
+  const { name, image, dateRange, description, color } = sign;
 
   useEffect(() => {
     if (description) {
@@ -12,31 +12,12 @@ const HoroscopeResult = ({ sign, onBack }) => {
           speechSynthesis.speak(utterance);
         }
       };
-
       speakText(description);
-
-      // Stop any previous speech if "Back" button is clicked
-      return () => {
-        speechSynthesis.cancel(); // Clean up if component unmounts or back button is clicked
-      };
     }
   }, [description]);
 
   return (
-    <div
-      className="horoscope-result"
-      style={{
-        backgroundColor: color, // Background color of the result display
-      }}
-    >
-      {backgroundImage && (
-        <div
-          className="result-background-image"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-          }}
-        />
-      )}
+    <div className="horoscope-result">
       <button className="back-button" onClick={onBack}>Back</button>
       <img src={image} alt={name} className="horoscope-image" />
       <p><strong>Date Range:</strong> {dateRange}</p>

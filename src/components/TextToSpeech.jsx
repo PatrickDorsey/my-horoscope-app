@@ -18,4 +18,3 @@ const TextToSpeech = ({ message }) => {
 };
 
 export default TextToSpeech;
-

@@ -1,27 +1,27 @@
 .user-input-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    z-index: 3; /* Ensure the form is above background images */
-  }
-  
-  .user-input-form label {
-    margin-bottom: 10px;
-  }
-  
-  .user-input-form input {
-    margin-left: 10px;
-  }
-  
-  .user-input-form button {
-    margin-top: 20px;
-    align-self: flex-start;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  z-index: 3; /* Ensure the form is above background images */
+}
+
+.user-input-form label {
+  margin-bottom: 10px;
+}
+
+.user-input-form input {
+  margin-left: 10px;
+}
+
+.user-input-form button {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+

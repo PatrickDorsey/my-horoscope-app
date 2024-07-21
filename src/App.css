@@ -1,7 +1,4 @@
-/* src/App.css */
-
-/* Ensure proper styling for the entire app container */
-.app-container {
+app-container {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -140,5 +137,4 @@
   cursor: pointer;
   border-radius: 5px;
 }
-
 
