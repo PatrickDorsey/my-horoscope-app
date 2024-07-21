@@ -1,4 +1,6 @@
 /* src/App.css */
+
+/* Ensure proper styling for the entire app container */
 .app-container {
   position: relative;
   height: 100vh;
@@ -6,43 +8,43 @@
   overflow: hidden;
 }
 
-.background-image-second-fixed {
+/* Styling for background images */
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/images/underimage.jpg');
   background-size: cover;
   background-position: center;
-  z-index: -1;
-}
-
-.background-image-rotating {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/images/horoscope.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: rotateBackground 30s linear infinite;
   z-index: 0;
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
 
+/* Second fixed background image */
+.background-image-second-fixed {
+  background-image: url('/images/underimage.jpg'); /* Path to the second fixed background image */
+  z-index: -1; /* Ensure it stays below other background images */
+}
+
+/* Rotating background image */
+.background-image-rotating {
+  background-image: url('/images/horoscope.jpg'); /* Path to the rotating background image */
+  animation: rotateBackground 30s linear infinite;
+}
+
+/* Fixed background image */
 .background-image-fixed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/images/shebad.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
+  background-image: url('/images/shebad.jpg'); /* Path to the fixed background image */
 }
 
+/* Hidden background images */
+.background-image-hidden {
+  opacity: 0;
+  pointer-events: none; /* Ensure no interaction when hidden */
+}
+
+/* Keyframes for rotating background image */
 @keyframes rotateBackground {
   from {
     transform: rotate(0deg);
@@ -52,24 +54,28 @@
   }
 }
 
+/* App content styles */
 .app-content {
   position: relative;
   z-index: 2;
   text-align: center;
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
+/* Zodiac container for displaying zodiac signs */
 .zodiac-container {
   position: absolute;
   top: calc(50% + 420px); /* Adjust vertical position */
   left: 70%;
   transform: translate(-50%, -50%);
-  width: 800px; /* Adjust as needed */
-  height: 800px; /* Adjust as needed */
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Individual zodiac sign styles */
 .zodiac-sign {
   position: absolute;
   width: 100px; /* Adjust width as needed */
@@ -79,11 +85,13 @@
   cursor: pointer;
 }
 
+/* Image styling for zodiac signs */
 .zodiac-image {
   width: 80px; /* Adjust width as needed */
   height: auto;
 }
 
+/* Zodiac name styling */
 .zodiac-name {
   margin-top: 10px; /* Space between image and name */
   font-weight: bold;
@@ -112,14 +120,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
+/* Image styling for the result display */
 .horoscope-image {
   width: 150px;
   height: auto;
   margin-bottom: 20px;
 }
 
+/* Back button styling */
 .back-button {
   background-color: #007bff;
   color: white;
@@ -129,3 +140,5 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+

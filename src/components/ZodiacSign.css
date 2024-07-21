@@ -1,0 +1,28 @@
+/* src/ZodiacSigns.css */
+
+.zodiac-container {
+  position: absolute;
+  top: calc(50% + 420px);
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zodiac-sign {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  text-align: center;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.zodiac-image {
+  width: 80px;
+  height: auto;
+}
+

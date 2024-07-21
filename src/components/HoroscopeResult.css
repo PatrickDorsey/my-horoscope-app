@@ -1,0 +1,56 @@
+/* Horoscope result container */
+.horoscope-result {
+  padding: 20px;
+  color: #060606;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
+}
+
+/* Background image styling */
+.result-background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%; /* Adjust size as needed */
+  height: 80%; /* Adjust size as needed */
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Horoscope image styling */
+.horoscope-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Back button styling */
+.back-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+  
