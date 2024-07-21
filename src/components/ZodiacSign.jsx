@@ -11,4 +11,4 @@ const ZodiacSign = ({ sign, onClick }) => {
   );
 };
 
-export default ZodiacSign;
+export default ZodiacSign

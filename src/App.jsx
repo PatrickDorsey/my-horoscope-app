@@ -1,11 +1,11 @@
 // src/App.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ZodiacSign from './components/ZodiacSign';
 import HoroscopeResult from './components/HoroscopeResult';
 import UserInputForm from './components/UserInputForm';
 import './App.css';
+import './index.css';
 
-// Load the horoscope data from the public folder
 const fetchHoroscopeData = async () => {
   const response = await fetch('/horoscope.json');
   return response.json();
@@ -15,9 +15,9 @@ const App = () => {
   const [selectedSign, setSelectedSign] = useState(null);
   const [horoscopeData, setHoroscopeData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isRotating, setIsRotating] = useState(true);
 
-  // Fetch horoscope data on component mount
-  React.useEffect(() => {
+  useEffect(() => {
     const getHoroscopeData = async () => {
       const data = await fetchHoroscopeData();
       setHoroscopeData(data);
@@ -25,6 +25,19 @@ const App = () => {
     };
 
     getHoroscopeData();
+  }, []);
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest('.app-content')) {
+      setIsRotating((prev) => !prev);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const handleSignClick = (sign) => {
@@ -56,8 +69,14 @@ const App = () => {
     return <div>Loading...</div>;
   }
 
+  const zodiacSigns = horoscopeData;
+  const numberOfSigns = zodiacSigns.length;
+  const radius = 200; // Increased radius for a larger circle
+
   return (
-    <div className="app">
+    <div className="app-container">
+      <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'}`}></div>
+      <div className="background-image-second-fixed"></div>
       <div className="app-content">
         {selectedSign ? (
           <HoroscopeResult sign={selectedSign} onBack={handleBackClick} />
@@ -65,9 +84,25 @@ const App = () => {
           <>
             <h1>Horoscope App</h1>
             <div className="zodiac-container">
-              {horoscopeData.map((sign) => (
-                <ZodiacSign key={sign.name} sign={sign} onClick={() => handleSignClick(sign)} />
-              ))}
+              {zodiacSigns.map((sign, index) => {
+                const angle = (index / numberOfSigns) * 2 * Math.PI;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+
+                return (
+                  <div
+                    key={sign.name}
+                    className="zodiac-sign"
+                    style={{
+                      transform: `translate(${x}px, ${y}px)`,
+                    }}
+                    onClick={() => handleSignClick(sign)}
+                  >
+                    <img src={sign.image} alt={sign.name} className="zodiac-image" />
+                    <div className="zodiac-name">{sign.name}</div>
+                  </div>
+                );
+              })}
             </div>
             <UserInputForm onDateSubmit={handleDateSubmit} />
           </>
@@ -78,3 +113,4 @@ const App = () => {
 };
 
 export default App;
+

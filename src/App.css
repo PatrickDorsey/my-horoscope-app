@@ -1,54 +1,123 @@
 /* src/App.css */
-/* Applies to the entire app container */
-.app {
-  text-align: center;
-  /* Background image specific to the first page */
-  background-image: url('/images/horoscope.jpg'); /* Use the relative URL */
+.app-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.background-image-second-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/underimage.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Optional: Fixes the background image in place */
-  background-position: center; /* Optional: Centers the background image */
-  min-height: 100vh; /* Ensure the background covers the full height */
-  padding: 20px; /* Optional: Adds padding around the content */
+  background-position: center;
+  z-index: -1;
 }
 
-/* Container for the main content */
+.background-image-rotating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/horoscope.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: rotateBackground 30s linear infinite;
+  z-index: 0;
+}
+
+.background-image-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/shebad.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .app-content {
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional: Semi-transparent background for readability */
-  border-radius: 10px; /* Optional: Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for a card effect */
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
-/* Container for zodiac signs */
 .zodiac-container {
+  position: absolute;
+  top: calc(50% + 420px); /* Adjust vertical position */
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 800px; /* Adjust as needed */
+  height: 800px; /* Adjust as needed */
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
   justify-content: center;
 }
 
-/* Styles for each zodiac sign */
 .zodiac-sign {
+  position: absolute;
+  width: 100px; /* Adjust width as needed */
+  height: auto;
+  text-align: center;
+  margin: 20px; /* Added margin for spacing */
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .zodiac-image {
-  width: 100px;
+  width: 80px; /* Adjust width as needed */
   height: auto;
 }
 
-/* Styles for horoscope result */
+.zodiac-name {
+  margin-top: 10px; /* Space between image and name */
+  font-weight: bold;
+}
+
+/* Circle layout styles for zodiac signs */
+.zodiac-sign:nth-child(1) { transform: rotate(0deg) translateX(400px) rotate(0deg); }
+.zodiac-sign:nth-child(2) { transform: rotate(30deg) translateX(400px) rotate(-30deg); }
+.zodiac-sign:nth-child(3) { transform: rotate(60deg) translateX(400px) rotate(-60deg); }
+.zodiac-sign:nth-child(4) { transform: rotate(90deg) translateX(400px) rotate(-90deg); }
+.zodiac-sign:nth-child(5) { transform: rotate(120deg) translateX(400px) rotate(-120deg); }
+.zodiac-sign:nth-child(6) { transform: rotate(150deg) translateX(400px) rotate(-150deg); }
+.zodiac-sign:nth-child(7) { transform: rotate(180deg) translateX(400px) rotate(-180deg); }
+.zodiac-sign:nth-child(8) { transform: rotate(210deg) translateX(400px) rotate(-210deg); }
+.zodiac-sign:nth-child(9) { transform: rotate(240deg) translateX(400px) rotate(-240deg); }
+.zodiac-sign:nth-child(10) { transform: rotate(270deg) translateX(400px) rotate(-270deg); }
+.zodiac-sign:nth-child(11) { transform: rotate(300deg) translateX(400px) rotate(-300deg); }
+.zodiac-sign:nth-child(12) { transform: rotate(330deg) translateX(400px) rotate(-330deg); }
+
+/* Styling for the result display */
 .horoscope-result {
   padding: 20px;
+  color: #fff; /* Text color to ensure readability on colored background */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .horoscope-image {
   width: 150px;
   height: auto;
+  margin-bottom: 20px;
 }
 
 .back-button {
@@ -57,27 +126,6 @@
   border: none;
   padding: 10px 20px;
   margin-bottom: 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* Styles for the user input form */
-.user-input-form {
-  margin-top: 20px;
-}
-
-.input-field {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.submit-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
 }

@@ -1,74 +1,101 @@
 [
-    {
-      "name": "Aries",
-      "dateRange": "March 21 - April 19",
-      "image": "/images/aries.jpg",
-      "description": "Aries is the first sign of the zodiac, symbolizing leadership and courage."
-    },
-    {
-      "name": "Taurus",
-      "dateRange": "April 20 - May 20",
-      "image": "/images/taurus.jpg",
-      "description": "Taurus is the second sign of the zodiac, symbolizing strength and reliability."
-    },
-    {
-      "name": "Gemini",
-      "dateRange": "May 21 - June 20",
-      "image": "/images/gemini.jpg",
-      "description": "Gemini is the third sign of the zodiac, symbolizing communication and versatility."
-    },
-    {
-      "name": "Cancer",
-      "dateRange": "June 21 - July 22",
-      "image": "/images/cancer.jpg",
-      "description": "Cancer is the fourth sign of the zodiac, symbolizing nurturing and sensitivity."
-    },
-    {
-      "name": "Leo",
-      "dateRange": "July 23 - August 22",
-      "image": "/images/leo.jpg",
-      "description": "Leo is the fifth sign of the zodiac, symbolizing creativity and passion."
-    },
-    {
-      "name": "Virgo",
-      "dateRange": "August 23 - September 22",
-      "image": "/images/virgo.jpg",
-      "description": "Virgo is the sixth sign of the zodiac, symbolizing practicality and diligence."
-    },
-    {
-      "name": "Libra",
-      "dateRange": "September 23 - October 22",
-      "image": "/images/libra.jpg",
-      "description": "Libra is the seventh sign of the zodiac, symbolizing balance and harmony."
-    },
-    {
-      "name": "Scorpio",
-      "dateRange": "October 23 - November 21",
-      "image": "/images/scorpio.jpg",
-      "description": "Scorpio is the eighth sign of the zodiac, symbolizing intensity and transformation."
-    },
-    {
-      "name": "Sagittarius",
-      "dateRange": "November 22 - December 21",
-      "image": "/images/sagittarius.jpg",
-      "description": "Sagittarius is the ninth sign of the zodiac, symbolizing exploration and wisdom."
-    },
-    {
-      "name": "Capricorn",
-      "dateRange": "December 22 - January 19",
-      "image": "/images/capricorn.jpg",
-      "description": "Capricorn is the tenth sign of the zodiac, symbolizing ambition and discipline."
-    },
-    {
-      "name": "Aquarius",
-      "dateRange": "January 20 - February 18",
-      "image": "/images/aquarius.jpg",
-      "description": "Aquarius is the eleventh sign of the zodiac, symbolizing innovation and humanitarianism."
-    },
-    {
-      "name": "Pisces",
-      "dateRange": "February 19 - March 20",
-      "image": "/images/pisces.jpg",
-      "description": "Pisces is the twelfth sign of the zodiac, symbolizing empathy and imagination."
-    }
-  ]
+  {
+    "name": "Aries",
+    "dateRange": "March 21 - April 19",
+    "image": "/images/aries.jpg",
+    "description": "Aries is the first sign of the zodiac, symbolizing leadership and courage.",
+    "color": "#FF4F4F",  
+    "colorReason": "Aries is associated with the color red, representing their passionate and dynamic nature."
+  },
+  {
+    "name": "Taurus",
+    "dateRange": "April 20 - May 20",
+    "image": "/images/taurus.jpg",
+    "description": "Taurus is the second sign of the zodiac, symbolizing strength and reliability.",
+    "color": "#2ECC71",  
+    "colorReason": "Taurus is associated with the color green, symbolizing their grounded and nurturing qualities."
+  },
+  {
+    "name": "Gemini",
+    "dateRange": "May 21 - June 20",
+    "image": "/images/gemini.jpg",
+    "description": "Gemini is the third sign o[f the zodiac, symbolizing communication and versatility.",
+    "color": "#F1C40F",  
+    "colorReason": "Gemini is associated with the color yellow, representing their intellectual curiosity and energy."
+  },
+  {
+    "name": "Cancer",
+    "dateRange": "June 21 - July 22",
+    "image": "/images/cancer.jpg",
+    "description": "Cancer is the fourth sign of the zodiac, symbolizing nurturing and sensitivity.",
+    "color": "#3498DB",  
+    "colorReason": "Cancer is associated with the color blue, reflecting their emotional depth and caring nature."
+  },
+  {
+    "name": "Leo",
+    "dateRange": "July 23 - August 22",
+    "image": "/images/leo.jpg",
+    "description": "Leo is the fifth sign of the zodiac, symbolizing creativity and passion.",
+    "color": "#F39C12",  
+    "colorReason": "Leo is associated with the color gold, representing their vibrant and charismatic personality."
+  },
+  {
+    "name": "Virgo",
+    "dateRange": "August 23 - September 22",
+    "image": "/images/virgo.jpg",
+    "description": "Virgo is the sixth sign of the zodiac, symbolizing practicality and diligence.",
+    "color": "#8E44AD",  
+    "colorReason": "Virgo is associated with the color purple, reflecting their analytical and meticulous nature."
+  },
+  {
+    "name": "Libra",
+    "dateRange": "September 23 - October 22",
+    "image": "/images/libra.jpg",
+    "description": "Libra is the seventh sign of the zodiac, symbolizing balance and harmony.",
+    "color": "#E74C3C",  
+    "colorReason": "Libra is associated with the color pink, symbolizing their sense of balance and love for beauty."
+  },
+  {
+    "name": "Scorpio",
+    "dateRange": "October 23 - November 21",
+    "image": "/images/scorpio.jpg",
+    "description": "Scorpio is the eighth sign of the zodiac, symbolizing intensity and transformation.",
+    "color": "#C0392B",  
+    "colorReason": "Scorpio is associated with the color maroon, representing their intense and transformative qualities."
+  },
+  {
+    "name": "Sagittarius",
+    "dateRange": "November 22 - December 21",
+    "image": "/images/sagittarius.jpg",
+    "description": "Sagittarius is the ninth sign of the zodiac, symbolizing exploration and wisdom.",
+    "color": "#E67E22",  
+    "colorReason": "Sagittarius is associated with the color orange, reflecting their adventurous and optimistic spirit."
+  },
+  {
+    "name": "Capricorn",
+    "dateRange": "December 22 - January 19",
+    "image": "/images/capricorn.jpg",
+    "description": "Capricorn is the tenth sign of the zodiac, symbolizing ambition and discipline.",
+    "color": "#2C3E50",  
+    "colorReason": "Capricorn is associated with the color dark blue, representing their disciplined and ambitious nature."
+  },
+  {
+    "name": "Aquarius",
+    "dateRange": "January 20 - February 18",
+    "image": "/images/aquarius.jpg",
+    "description": "Aquarius is the eleventh sign of the zodiac, symbolizing innovation and humanitarianism.",
+    "color": "#1ABC9C",  
+    "colorReason": "Aquarius is associated with the color turquoise, symbolizing their innovative and humanitarian qualities."
+  },
+  {
+    "name": "Pisces",
+    "dateRange": "February 19 - March 20",
+    "image": "/images/pisces.jpg",
+    "description": "Pisces is the twelfth sign of the zodiac, symbolizing empathy and imagination.",
+    "color": "#9B59B6",  
+    "colorReason": "Pisces is associated with the color lavender, representing their empathetic and imaginative nature."
+  }
+]
+
+
+

@@ -1,12 +1,78 @@
-/* Existing global styles */
+src/index.css */
+
+/* Basic reset and global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FFA500; /* Orange background color */
+  height: 100vh;
+  overflow: hidden;
 }
 
-h1 {
-  color: #333;
+/* Container for background images */
+.app-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
+
+/* Second fixed background image */
+.background-image-second-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/chosen.jpg'); /* Path to the second fixed background image */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure it stays below the other background images */
+}
+
+/* Rotating background image */
+.background-image-rotating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('/images/horoscope.jpg'); /* Path to the rotating background image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 80%;
+  animation: rotateBackground 30s linear infinite;
+  z-index: 0; /* Ensure it stays above the second fixed background image */
+}
+
+/* Fixed background image */
+.background-image-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/shebad.jpg'); /* Path to the fixed background image */
+  background-size: cover;
+  background-position: center;
+  z-index: 1; /* Ensure it stays above the second fixed background image but below rotating background image */
+}
+
+/* Keyframes for rotating background image */
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* App content styles */
+.app-content {
+  position: relative;
+  z-index: 2; /* Ensure it stays above all background images */
+  text-align: center;
+}
+
