@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ZodiacSign from './components/ZodiacSign';
 import HoroscopeResult from './components/HoroscopeResult';
 import UserInputForm from './components/UserInputForm';
+import BackgroundMusic from './components/BackgroundMusic'; // Import BackgroundMusic
+import TextToSpeech from './components/TextToSpeech'; // Import TextToSpeech
 import './App.css';
 import './index.css';
 
@@ -30,6 +32,9 @@ const App = () => {
   const [horoscopeData, setHoroscopeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isRotating, setIsRotating] = useState(true);
+  const [playMusic, setPlayMusic] = useState(true); // Manage music playback
+  const [speakText, setSpeakText] = useState(""); // Text for speech synthesis
+  const [stopSpeech, setStopSpeech] = useState(false); // Control for stopping speech
 
   useEffect(() => {
     const getHoroscopeData = async () => {
@@ -42,14 +47,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const welcomeVoice = new SpeechSynthesisUtterance("Welcome to our horoscope app. Please choose a sign.");
-    const speak = () => {
-      speechSynthesis.speak(welcomeVoice);
-    };
-
     if (!selectedSign) {
-      const timeoutId = setTimeout(speak, 500); // Delay to allow the component to load
-      return () => clearTimeout(timeoutId);
+      setSpeakText("Welcome to our horoscope app. Please choose a sign.");
+    } else {
+      setSpeakText(""); // Clear the text when a sign is selected
     }
   }, [selectedSign]);
 
@@ -67,11 +68,19 @@ const App = () => {
   }, []);
 
   const handleSignClick = (sign) => {
+    setStopSpeech(true); // Stop any ongoing speech
     setSelectedSign(sign);
+    setPlayMusic(false); // Stop music when a sign is selected
+    setIsRotating(false); // Stop the rotating background image
+    setSpeakText(""); // Clear text to prevent repetition
   };
 
   const handleBackClick = () => {
+    setStopSpeech(true); // Stop any ongoing speech
     setSelectedSign(null);
+    setPlayMusic(true); // Restart music when back is pressed
+    setIsRotating(true); // Restart the rotating background image
+    setSpeakText(""); // Clear text to prevent repetition
   };
 
   const handleDateSubmit = (day, month) => {
@@ -98,9 +107,9 @@ const App = () => {
     });
 
     if (sign) {
+      setStopSpeech(true); // Stop any ongoing speech
       setSelectedSign(sign);
-      const descriptionVoice = new SpeechSynthesisUtterance(sign.description);
-      speechSynthesis.speak(descriptionVoice);
+      setSpeakText(sign.description);
     } else {
       alert('No zodiac sign found for the given date.');
     }
@@ -117,6 +126,8 @@ const App = () => {
 
   return (
     <div className="app-container">
+      <BackgroundMusic play={playMusic} /> {/* Add BackgroundMusic component */}
+      <TextToSpeech message={speakText} stop={stopSpeech} /> {/* Add TextToSpeech component */}
       <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'} ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className={`background-image-second-fixed ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className="app-content" style={{ backgroundColor }}>
@@ -141,7 +152,7 @@ const App = () => {
                     onClick={() => handleSignClick(sign)}
                   >
                     <img src={sign.image} alt={sign.name} className="zodiac-image" />
-                    <div className="zodiac-name">{sign.name}</div>
+                    {/* Removed the zodiac name */}
                   </div>
                 );
               })}
