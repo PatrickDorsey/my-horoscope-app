@@ -22,6 +22,4 @@ const BackgroundMusic = ({ play }) => {
   );
 };
 
-export default BackgroundMusic;
-
-
+export default BackgroundMusic; 

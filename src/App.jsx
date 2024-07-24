@@ -32,9 +32,9 @@ const App = () => {
   const [horoscopeData, setHoroscopeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isRotating, setIsRotating] = useState(true);
-  const [playMusic, setPlayMusic] = useState(true); // Manage music playback
-  const [speakText, setSpeakText] = useState(""); // Text for speech synthesis
-  const [stopSpeech, setStopSpeech] = useState(false); // Control for stopping speech
+  const [playMusic, setPlayMusic] = useState(true); // Music should start playing initially
+  const [speechMessage, setSpeechMessage] = useState(''); // Manage TTS message
+  const [stopSpeech, setStopSpeech] = useState(false); // Manage stop speech
 
   useEffect(() => {
     const getHoroscopeData = async () => {
@@ -48,9 +48,10 @@ const App = () => {
 
   useEffect(() => {
     if (!selectedSign) {
-      setSpeakText("Welcome to our horoscope app. Please choose a sign.");
-    } else {
-      setSpeakText(""); // Clear the text when a sign is selected
+      setSpeechMessage("Lets get jiggy with it. Please choose a sign.");
+    } else if (selectedSign) {
+      setSpeechMessage(selectedSign.description);
+      setStopSpeech(false);
     }
   }, [selectedSign]);
 
@@ -68,19 +69,17 @@ const App = () => {
   }, []);
 
   const handleSignClick = (sign) => {
-    setStopSpeech(true); // Stop any ongoing speech
     setSelectedSign(sign);
     setPlayMusic(false); // Stop music when a sign is selected
     setIsRotating(false); // Stop the rotating background image
-    setSpeakText(""); // Clear text to prevent repetition
+    setStopSpeech(true); // Ensure previous speech stops
   };
 
   const handleBackClick = () => {
-    setStopSpeech(true); // Stop any ongoing speech
     setSelectedSign(null);
     setPlayMusic(true); // Restart music when back is pressed
     setIsRotating(true); // Restart the rotating background image
-    setSpeakText(""); // Clear text to prevent repetition
+    setStopSpeech(true); // Ensure previous speech stops
   };
 
   const handleDateSubmit = (day, month) => {
@@ -103,13 +102,20 @@ const App = () => {
       const startDate = new Date(2023, startMonth, parseInt(startDay, 10));
       const endDate = new Date(2023, endMonth, parseInt(endDay, 10));
 
-      return inputDate >= startDate && inputDate <= endDate;
+      // Handle ranges that span across the end of the year
+      if (startMonth < endMonth || (startMonth === endMonth && startDay <= endDay)) {
+        // Range does not cross the year boundary
+        return inputDate >= startDate && inputDate <= endDate;
+      } else {
+        // Range crosses the year boundary
+        return inputDate >= startDate || inputDate <= endDate;
+      }
     });
 
     if (sign) {
-      setStopSpeech(true); // Stop any ongoing speech
       setSelectedSign(sign);
-      setSpeakText(sign.description);
+      setSpeechMessage(sign.description);
+      setStopSpeech(false);
     } else {
       alert('No zodiac sign found for the given date.');
     }
@@ -127,7 +133,7 @@ const App = () => {
   return (
     <div className="app-container">
       <BackgroundMusic play={playMusic} /> {/* Add BackgroundMusic component */}
-      <TextToSpeech message={speakText} stop={stopSpeech} /> {/* Add TextToSpeech component */}
+      <TextToSpeech message={speechMessage} stop={stopSpeech} />
       <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'} ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className={`background-image-second-fixed ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className="app-content" style={{ backgroundColor }}>
@@ -152,7 +158,7 @@ const App = () => {
                     onClick={() => handleSignClick(sign)}
                   >
                     <img src={sign.image} alt={sign.name} className="zodiac-image" />
-                    {/* Removed the zodiac name */}
+                    {/* Remove the zodiac name text */}
                   </div>
                 );
               })}

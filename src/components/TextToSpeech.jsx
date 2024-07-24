@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 
 const TextToSpeech = ({ message, stop }) => {
   const utteranceRef = useRef(null);
+  const previousMessageRef = useRef('');
 
   useEffect(() => {
-    // When the component mounts or message changes
-    if (message) {
+    if (message && message !== previousMessageRef.current) {
       if ('speechSynthesis' in window) {
         // Stop any ongoing speech
         speechSynthesis.cancel();
@@ -14,6 +14,9 @@ const TextToSpeech = ({ message, stop }) => {
         const utterance = new SpeechSynthesisUtterance(message);
         utteranceRef.current = utterance;
         speechSynthesis.speak(utterance);
+
+        // Update the previous message reference
+        previousMessageRef.current = message;
       }
     }
 
@@ -24,7 +27,6 @@ const TextToSpeech = ({ message, stop }) => {
   }, [message]);
 
   useEffect(() => {
-    // If stop is true, cancel any ongoing speech
     if (stop) {
       speechSynthesis.cancel();
     }

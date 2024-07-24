@@ -1,6 +1,6 @@
 .horoscope-result {
   padding: 20px;
-  color: #fff; /* Text color to ensure readability on colored background */
+  color: #0a0202fe; /* Text color to ensure readability on colored background */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,10 +9,11 @@
   background-color: #000; /* Fallback color if background image fails to load */
   background-image: url('.images/ariesback.jpg'); /* Update to dynamic path if needed */
   background-position: center;
-  border-radius: 10%;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 10%;
   border: 10px solid rgba(255, 255, 255, 0.5); /* Optional border to keep some color visible */
+  position: relative; /* Needed to position the text-container absolutely */
 }
 
 .horoscope-image {
@@ -30,3 +31,12 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+.text-container {
+  background-color: rgba(11, 1, 1, 0.8); /* White background with some transparency */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%; /* Prevents the text container from stretching too wide */
+  text-align: center; /* Centers the text within the container */
+}
+

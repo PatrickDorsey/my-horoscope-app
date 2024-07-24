@@ -3,7 +3,7 @@
     "name": "Aries",
     "image": "/images/aries.jpg",
     "dateRange": "March 21 - April 19",
-    "description": "Aries is the first sign of the zodiac. People born under this sign are often energetic, confident, and enthusiastic.",
+    "description": "Aries is the first sign of the zodiac. People born under this sign are often energetic, confident, and enthusiastic. Famous Aries include Leonardo da Vinci and Lady Gaga. The day of the week associated with Aries is Tuesday. Lucky days are Tuesdays and Thursdays. Compatible signs are Leo and Sagittarius. The deity associated with Aries is Mars, the Roman god of war.",
     "color": "#F00",
     "backgroundImage": "/images/ariesback.jpg"
   },
@@ -11,7 +11,7 @@
     "name": "Taurus",
     "image": "/images/taurus.jpg",
     "dateRange": "April 20 - May 20",
-    "description": "Taurus is the second sign of the zodiac. Taureans are known for their practicality, reliability, and strong-willed nature.",
+    "description": "Taurus is the second sign of the zodiac. Taureans are known for their practicality, reliability, and strong-willed nature. Famous Taureans include William Shakespeare and Adele. The day of the week associated with Taurus is Friday. Lucky days are Mondays and Fridays. Compatible signs are Virgo and Capricorn. The deity associated with Taurus is Venus, the Roman goddess of love.",
     "color": "#0F0",
     "backgroundImage": "/images/taurusback.jpg"
   },
@@ -19,7 +19,7 @@
     "name": "Gemini",
     "image": "/images/gemini.jpg",
     "dateRange": "May 21 - June 20",
-    "description": "Gemini is the third sign of the zodiac. Geminis are curious, adaptable, and often have a youthful spirit.",
+    "description": "Gemini is the third sign of the zodiac. Geminis are curious, adaptable, and often have a youthful spirit. Famous Geminis include Marilyn Monroe and Johnny Depp. The day of the week associated with Gemini is Wednesday. Lucky days are Wednesdays and Sundays. Compatible signs are Libra and Aquarius. The deity associated with Gemini is Mercury, the Roman messenger god.",
     "color": "#00F",
     "backgroundImage": "/images/geminiback.jpg"
   },
@@ -27,7 +27,7 @@
     "name": "Cancer",
     "image": "/images/cancer.jpg",
     "dateRange": "June 21 - July 22",
-    "description": "Cancer is the fourth sign of the zodiac. People born under Cancer are nurturing, empathetic, and highly intuitive.",
+    "description": "Cancer is the fourth sign of the zodiac. People born under Cancer are nurturing, empathetic, and highly intuitive. Famous Cancers include Princess Diana and Tom Hanks. The day of the week associated with Cancer is Monday. Lucky days are Mondays and Thursdays. Compatible signs are Scorpio and Pisces. The deity associated with Cancer is Diana, the Roman goddess of the hunt and the moon.",
     "color": "#F0F",
     "backgroundImage": "/images/cancerBack.jpg"
   },
@@ -35,7 +35,7 @@
     "name": "Leo",
     "image": "/images/leo.jpg",
     "dateRange": "July 23 - August 22",
-    "description": "Leo is the fifth sign of the zodiac. Leos are known for their leadership qualities, creativity, and passion.",
+    "description": "Leo is the fifth sign of the zodiac. Leos are known for their leadership qualities, creativity, and passion. Famous Leos include Madonna and Barack Obama. The day of the week associated with Leo is Sunday. Lucky days are Sundays and Tuesdays. Compatible signs are Aries and Sagittarius. The deity associated with Leo is Apollo, the Greek god of the sun.",
     "color": "#FF0",
     "backgroundImage": "/images/leoBack.jpg"
   },
@@ -43,7 +43,7 @@
     "name": "Virgo",
     "image": "/images/virgo.jpg",
     "dateRange": "August 23 - September 22",
-    "description": "Virgo is the sixth sign of the zodiac. Virgos are detail-oriented, analytical, and often strive for perfection.",
+    "description": "Virgo is the sixth sign of the zodiac. Virgos are detail-oriented, analytical, and often strive for perfection. Famous Virgos include Beyoncé and Keanu Reeves. The day of the week associated with Virgo is Wednesday. Lucky days are Wednesdays and Fridays. Compatible signs are Taurus and Capricorn. The deity associated with Virgo is Ceres, the Roman goddess of agriculture.",
     "color": "#0FF",
     "backgroundImage": "/images/virgoback.jpg"
   },
@@ -51,7 +51,7 @@
     "name": "Libra",
     "image": "/images/libra.jpg",
     "dateRange": "September 23 - October 22",
-    "description": "Libra is the seventh sign of the zodiac. Libras are known for their sense of balance, harmony, and fairness.",
+    "description": "Libra is the seventh sign of the zodiac. Libras are known for their sense of balance, harmony, and fairness. Famous Libras include Mahatma Gandhi and Kim Kardashian. The day of the week associated with Libra is Friday. Lucky days are Fridays and Saturdays. Compatible signs are Gemini and Aquarius. The deity associated with Libra is Venus, the Roman goddess of love.",
     "color": "#F90",
     "backgroundImage": "/images/libraback.jpg"
   },
@@ -59,7 +59,7 @@
     "name": "Scorpio",
     "image": "/images/scorpio.jpg",
     "dateRange": "October 23 - November 21",
-    "description": "Scorpio is the eighth sign of the zodiac. Scorpios are intense, passionate, and highly resourceful.",
+    "description": "Scorpio is the eighth sign of the zodiac. Scorpios are intense, passionate, and highly resourceful. Famous Scorpios include Pablo Picasso and Katy Perry. The day of the week associated with Scorpio is Tuesday. Lucky days are Tuesdays and Thursdays. Compatible signs are Cancer and Pisces. The deity associated with Scorpio is Pluto, the Roman god of the underworld.",
     "color": "#900",
     "backgroundImage": "/images/scorpionback.jpg"
   },
@@ -67,7 +67,7 @@
     "name": "Sagittarius",
     "image": "/images/sagittarius.jpg",
     "dateRange": "November 22 - December 21",
-    "description": "Sagittarius is the ninth sign of the zodiac. Sagittarians are adventurous, optimistic, and love exploring new ideas.",
+    "description": "Sagittarius is the ninth sign of the zodiac. Sagittarians are adventurous, optimistic, and love exploring new ideas. Famous Sagittarians include Winston Churchill and Taylor Swift. The day of the week associated with Sagittarius is Thursday. Lucky days are Thursdays and Sundays. Compatible signs are Aries and Leo. The deity associated with Sagittarius is Jupiter, the Roman king of the gods.",
     "color": "#F0A",
     "backgroundImage": "/images/sagitariusBack.jpg"
   },
@@ -75,7 +75,7 @@
     "name": "Capricorn",
     "image": "/images/capricorn.jpg",
     "dateRange": "December 22 - January 19",
-    "description": "Capricorn is the tenth sign of the zodiac. Capricorns are disciplined, practical, and have a strong sense of responsibility.",
+    "description": "Capricorn is the tenth sign of the zodiac. Capricorns are disciplined, practical, and have a strong sense of responsibility. Famous Capricorns include Martin Luther King Jr. and Michelle Obama. The day of the week associated with Capricorn is Saturday. Lucky days are Saturdays and Wednesdays. Compatible signs are Taurus and Virgo. The deity associated with Capricorn is Saturn, the Roman god of time and agriculture.",
     "color": "#808",
     "backgroundImage": "/images/capricornback.jpg"
   },
@@ -83,7 +83,7 @@
     "name": "Aquarius",
     "image": "/images/aquarius.jpg",
     "dateRange": "January 20 - February 18",
-    "description": "Aquarius is the eleventh sign of the zodiac. Aquarians are innovative, independent, and have a strong sense of idealism.",
+    "description": "Aquarius is the eleventh sign of the zodiac. Aquarians are innovative, independent, and have a strong sense of idealism. Famous Aquarians include Oprah Winfrey and Abraham Lincoln. The day of the week associated with Aquarius is Saturday. Lucky days are Saturdays and Sundays. Compatible signs are Gemini and Libra. The deity associated with Aquarius is Uranus, the Greek god of the sky.",
     "color": "#0A0",
     "backgroundImage": "/images/aquariusBack.jpg"
   },
@@ -91,7 +91,7 @@
     "name": "Pisces",
     "image": "/images/pisces.jpg",
     "dateRange": "February 19 - March 20",
-    "description": "Pisces is the twelfth sign of the zodiac. Pisceans are compassionate, artistic, and often have a deep sense of empathy.",
+    "description": "Pisces is the twelfth sign of the zodiac. Pisceans are compassionate, artistic, and often have a deep sense of empathy. Famous Pisceans include Albert Einstein and Rihanna. The day of the week associated with Pisces is Thursday. Lucky days are Thursdays and Mondays. Compatible signs are Cancer and Scorpio. The deity associated with Pisces is Neptune, the Roman god of the sea.",
     "color": "#00A",
     "backgroundImage": "/images/PiscesBack.jpg"
   }

@@ -19,8 +19,9 @@ const HoroscopeResult = ({ sign, onBack }) => {
   // Inline style for background image
   const containerStyle = {
     backgroundImage: `url(${backgroundImage})`,
-    backgroundPosition: 'center',
+    backgroundPosition: 'center 38%',
     backgroundSize: 'cover',
+    borderRadius: '80%',
     backgroundRepeat: 'no-repeat',
   };
 
@@ -28,10 +29,13 @@ const HoroscopeResult = ({ sign, onBack }) => {
     <div className="horoscope-result" style={containerStyle}>
       <button className="back-button" onClick={onBack}>Back</button>
       <img src={image} alt={name} className="horoscope-image" />
-      <p><strong>Date Range:</strong> {dateRange}</p>
-      <p><strong>Description:</strong> {description}</p>
+      <div className="text-container">
+        <p><strong>Date Range:</strong> {dateRange}</p>
+        <p><strong>Description:</strong> {description}</p>
+      </div>
     </div>
   );
 };
 
 export default HoroscopeResult;
+
