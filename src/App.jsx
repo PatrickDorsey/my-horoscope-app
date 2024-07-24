@@ -1,9 +1,10 @@
+// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import ZodiacSign from './components/ZodiacSign';
 import HoroscopeResult from './components/HoroscopeResult';
 import UserInputForm from './components/UserInputForm';
-import BackgroundMusic from './components/BackgroundMusic'; // Import BackgroundMusic
-import TextToSpeech from './components/TextToSpeech'; // Import TextToSpeech
+import BackgroundMusic from './components/BackgroundMusic'; 
+import TextToSpeech from './components/TextToSpeech'; 
 import './App.css';
 import './index.css';
 
@@ -32,9 +33,9 @@ const App = () => {
   const [horoscopeData, setHoroscopeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isRotating, setIsRotating] = useState(true);
-  const [playMusic, setPlayMusic] = useState(true); // Music should start playing initially
-  const [speechMessage, setSpeechMessage] = useState(''); // Manage TTS message
-  const [stopSpeech, setStopSpeech] = useState(false); // Manage stop speech
+  const [playMusic, setPlayMusic] = useState(true);
+  const [speechMessage, setSpeechMessage] = useState('');
+  const [stopSpeech, setStopSpeech] = useState(false);
 
   useEffect(() => {
     const getHoroscopeData = async () => {
@@ -48,7 +49,7 @@ const App = () => {
 
   useEffect(() => {
     if (!selectedSign) {
-      setSpeechMessage("Lets get jiggy with it. Please choose a sign.");
+      setSpeechMessage("Welcome to our horoscope app. Please choose a sign.");
     } else if (selectedSign) {
       setSpeechMessage(selectedSign.description);
       setStopSpeech(false);
@@ -70,16 +71,16 @@ const App = () => {
 
   const handleSignClick = (sign) => {
     setSelectedSign(sign);
-    setPlayMusic(false); // Stop music when a sign is selected
-    setIsRotating(false); // Stop the rotating background image
-    setStopSpeech(true); // Ensure previous speech stops
+    setPlayMusic(false);
+    setIsRotating(false);
+    setStopSpeech(true);
   };
 
   const handleBackClick = () => {
     setSelectedSign(null);
-    setPlayMusic(true); // Restart music when back is pressed
-    setIsRotating(true); // Restart the rotating background image
-    setStopSpeech(true); // Ensure previous speech stops
+    setPlayMusic(true);
+    setIsRotating(true);
+    setStopSpeech(true);
   };
 
   const handleDateSubmit = (day, month) => {
@@ -102,14 +103,7 @@ const App = () => {
       const startDate = new Date(2023, startMonth, parseInt(startDay, 10));
       const endDate = new Date(2023, endMonth, parseInt(endDay, 10));
 
-      // Handle ranges that span across the end of the year
-      if (startMonth < endMonth || (startMonth === endMonth && startDay <= endDay)) {
-        // Range does not cross the year boundary
-        return inputDate >= startDate && inputDate <= endDate;
-      } else {
-        // Range crosses the year boundary
-        return inputDate >= startDate || inputDate <= endDate;
-      }
+      return inputDate >= startDate && inputDate <= endDate;
     });
 
     if (sign) {
@@ -126,17 +120,27 @@ const App = () => {
   }
 
   const zodiacSigns = horoscopeData;
-  const numberOfSigns = zodiacSigns.length;
-  const radius = 200;
-  const backgroundColor = selectedSign ? selectedSign.color : 'transparent'; // Set background color for result page
 
   return (
     <div className="app-container">
-      <BackgroundMusic play={playMusic} /> {/* Add BackgroundMusic component */}
+      <BackgroundMusic play={playMusic} />
       <TextToSpeech message={speechMessage} stop={stopSpeech} />
       <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'} ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className={`background-image-second-fixed ${selectedSign ? 'background-image-hidden' : ''}`}></div>
-      <div className="app-content" style={{ backgroundColor }}>
+      <div className="app-content" style={{ backgroundColor: selectedSign ? selectedSign.color : 'transparent' }}>
+        {/* Navigation Panel */}
+        <nav className="zodiac-navigation">
+          {zodiacSigns.map((sign) => (
+            <button 
+              key={sign.name} 
+              className="zodiac-nav-item" 
+              onClick={() => handleSignClick(sign)}
+            >
+              {sign.name}
+            </button>
+          ))}
+        </nav>
+
         {selectedSign ? (
           <HoroscopeResult sign={selectedSign} onBack={handleBackClick} />
         ) : (
@@ -144,22 +148,17 @@ const App = () => {
             <h1>Horoscope App</h1>
             <div className="zodiac-container">
               {zodiacSigns.map((sign, index) => {
-                const angle = (index / numberOfSigns) * 2 * Math.PI;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
+                const angle = (index / zodiacSigns.length) * 2 * Math.PI;
+                const x = Math.cos(angle) * 200;
+                const y = Math.sin(angle) * 200;
 
                 return (
-                  <div
-                    key={sign.name}
-                    className="zodiac-sign"
-                    style={{
-                      transform: `translate(${x}px, ${y}px)`,
-                    }}
+                  <ZodiacSign 
+                    key={sign.name} 
+                    sign={sign} 
                     onClick={() => handleSignClick(sign)}
-                  >
-                    <img src={sign.image} alt={sign.name} className="zodiac-image" />
-                    {/* Remove the zodiac name text */}
-                  </div>
+                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                  />
                 );
               })}
             </div>

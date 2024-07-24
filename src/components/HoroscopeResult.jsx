@@ -20,7 +20,7 @@ const HoroscopeResult = ({ sign, onBack }) => {
   const containerStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: 'center 38%',
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     borderRadius: '80%',
     backgroundRepeat: 'no-repeat',
   };
