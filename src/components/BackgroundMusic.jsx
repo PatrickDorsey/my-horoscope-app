@@ -1,4 +1,3 @@
-// src/components/BackgroundMusic.jsx
 import React, { useRef, useEffect } from 'react';
 
 const BackgroundMusic = ({ play }) => {

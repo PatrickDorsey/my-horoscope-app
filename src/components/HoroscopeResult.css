@@ -9,6 +9,7 @@
   background-color: #000; /* Fallback color if background image fails to load */
   background-image: url('.images/ariesback.jpg'); /* Update to dynamic path if needed */
   background-position: center;
+  border-radius: 10%;
   background-size: cover;
   background-repeat: no-repeat;
   border: 10px solid rgba(255, 255, 255, 0.5); /* Optional border to keep some color visible */
