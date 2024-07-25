@@ -77,11 +77,6 @@ h1 {
     z-index: 3; /* Ensure the form is above background images */
   }
   
-  .user-input-form label {
-    margin-bottom: 2000px;
-    
-  }
-  
   
   
     transform: rotate(0deg);

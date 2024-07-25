@@ -32,7 +32,6 @@ const App = () => {
   const [horoscopeData, setHoroscopeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isRotating, setIsRotating] = useState(true);
-  const [playMusic, setPlayMusic] = useState(true);
   const [speechMessage, setSpeechMessage] = useState('');
   const [stopSpeech, setStopSpeech] = useState(false);
 
@@ -47,13 +46,15 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (!selectedSign) {
-      setSpeechMessage("Welcome to the horoscope app. Please choose a sign.");
-    } else if (selectedSign) {
+    if (loading) return; 
+    
+    if (selectedSign === null) {
+      setSpeechMessage("Lets get jiggy wit it na na naw. Please choose a zodiac sign or enter your birthdate.");
+    } else {
       setSpeechMessage(selectedSign.description);
-      setStopSpeech(false);
     }
-  }, [selectedSign]);
+    setStopSpeech(false); 
+  }, [selectedSign, loading]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -69,17 +70,18 @@ const App = () => {
   }, []);
 
   const handleSignClick = (sign) => {
-    setSelectedSign(sign);
-    setPlayMusic(false);
-    setIsRotating(false);
-    setStopSpeech(true);
+    setStopSpeech(true); 
+    setTimeout(() => {
+      setSelectedSign(sign);
+      setIsRotating(false);
+    }, 100); 
   };
 
   const handleBackClick = () => {
-    setSelectedSign(null);
-    setPlayMusic(true);
-    setIsRotating(true);
-    setStopSpeech(true);
+    setStopSpeech(true); 
+    setTimeout(() => {
+      setSelectedSign(null);
+    }, 100); 
   };
 
   const handleDateSubmit = (day, month) => {
@@ -103,7 +105,6 @@ const App = () => {
       let endDate = new Date(2023, endMonth, parseInt(endDay, 10));
 
       if (startMonth > endMonth) {
-        // Handle year rollover for signs like Capricorn
         if (inputDate >= startDate || inputDate <= endDate) {
           return true;
         }
@@ -117,9 +118,12 @@ const App = () => {
     });
 
     if (sign) {
-      setSelectedSign(sign);
-      setSpeechMessage(sign.description);
-      setStopSpeech(false);
+      setStopSpeech(true);
+      setTimeout(() => {
+        setSelectedSign(sign);
+        setSpeechMessage(sign.description);
+        setStopSpeech(false); 
+      }, 100); 
     } else {
       alert('No zodiac sign found for the given date.');
     }
@@ -133,12 +137,11 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <BackgroundMusic play={playMusic} />
+      <BackgroundMusic />
       <TextToSpeech message={speechMessage} stop={stopSpeech} />
       <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'} ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className={`background-image-second-fixed ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className="app-content" style={{ backgroundColor: selectedSign ? selectedSign.color : 'transparent' }}>
-        {/* Navigation Panel */}
         <nav className="zodiac-navigation">
           {zodiacSigns.map((sign) => (
             <button 
@@ -181,3 +184,4 @@ const App = () => {
 };
 
 export default App;
+
