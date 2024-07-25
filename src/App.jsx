@@ -49,7 +49,7 @@ const App = () => {
     if (loading) return; 
     
     if (selectedSign === null) {
-      setSpeechMessage("Lets get jiggy wit it na na naw. Please choose a zodiac sign or enter your birthdate.");
+      setSpeechMessage("Please choose a zodiac sign or enter your birthdate.");
     } else {
       setSpeechMessage(selectedSign.description);
     }
