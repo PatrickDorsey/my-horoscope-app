@@ -77,7 +77,8 @@ const App = () => {
       setPlayMusic(true); 
       setIsRotating(false);
     }, 100); 
-  }
+  };
+
   const handleBackClick = () => {
     setStopSpeech(true); 
     setTimeout(() => {
@@ -186,7 +187,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
