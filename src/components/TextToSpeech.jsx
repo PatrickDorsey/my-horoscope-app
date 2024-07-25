@@ -5,7 +5,6 @@ const TextToSpeech = ({ message, stop }) => {
 
   useEffect(() => {
     if (stop) {
-      
       if (utteranceRef.current) {
         speechSynthesis.cancel();
         utteranceRef.current = null;
@@ -14,28 +13,23 @@ const TextToSpeech = ({ message, stop }) => {
     }
 
     if (message) {
-      
       speechSynthesis.cancel();
 
-      
       const utterance = new SpeechSynthesisUtterance(message);
       utteranceRef.current = utterance;
       speechSynthesis.speak(utterance);
 
-     
       utterance.onend = () => {
         if (utteranceRef.current === utterance) {
           utteranceRef.current = null;
         }
       };
 
- 
       utterance.onerror = (e) => {
         console.error('Speech synthesis error:', e);
       };
     }
 
-    
     return () => {
       if (utteranceRef.current) {
         speechSynthesis.cancel();
@@ -47,6 +41,7 @@ const TextToSpeech = ({ message, stop }) => {
 };
 
 export default TextToSpeech;
+
 
 
 

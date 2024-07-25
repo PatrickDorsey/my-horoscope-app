@@ -32,7 +32,6 @@ const App = () => {
   const [horoscopeData, setHoroscopeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isRotating, setIsRotating] = useState(true);
-  const [playMusic, setPlayMusic] = useState(true);
   const [speechMessage, setSpeechMessage] = useState('');
   const [stopSpeech, setStopSpeech] = useState(false);
 
@@ -74,7 +73,6 @@ const App = () => {
     setStopSpeech(true); 
     setTimeout(() => {
       setSelectedSign(sign);
-      setPlayMusic(true); 
       setIsRotating(false);
     }, 100); 
   };
@@ -83,7 +81,6 @@ const App = () => {
     setStopSpeech(true); 
     setTimeout(() => {
       setSelectedSign(null);
-      setPlayMusic(true); 
     }, 100); 
   };
 
@@ -140,7 +137,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <BackgroundMusic play={playMusic} />
+      <BackgroundMusic />
       <TextToSpeech message={speechMessage} stop={stopSpeech} />
       <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'} ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className={`background-image-second-fixed ${selectedSign ? 'background-image-hidden' : ''}`}></div>
@@ -187,3 +184,4 @@ const App = () => {
 };
 
 export default App;
+
