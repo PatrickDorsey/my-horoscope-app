@@ -1,7 +1,8 @@
+
 .zodiac-container {
   position: absolute;
   top: calc(50% + 420px);
-  left: 75%;
+  left: 70%;
   transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
@@ -17,28 +18,9 @@
   text-align: center;
   margin: 20px;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.zodiac-sign:hover {
-  transform: scale(1.1); /* Slightly scale up on hover */
 }
 
 .zodiac-image {
   width: 80px;
   height: auto;
-}
-
-.zodiac-name {
-  position: absolute;
-  bottom: -30px; /* Adjust as needed to position the name */
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  font-weight: bold;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease; /* Smooth fade in/out */
 }
