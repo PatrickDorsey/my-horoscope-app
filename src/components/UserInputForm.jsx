@@ -16,9 +16,11 @@ const UserInputForm = ({ onDateSubmit }) => {
 
   return (
     <form className="user-input-form" onSubmit={handleSubmit}>
-      <label>
-        Day:
+      <div className="day-container">
+        <label htmlFor="day">Day:</label>
         <input
+          id="day"
+          className="day-input"
           type="number"
           value={day}
           onChange={(e) => setDay(e.target.value)}
@@ -26,10 +28,12 @@ const UserInputForm = ({ onDateSubmit }) => {
           min="1"
           max="31"
         />
-      </label>
-      <label>
-        Month:
+      </div>
+      <div className="month-container">
+        <label htmlFor="month">Month:</label>
         <input
+          id="month"
+          className="month-input"
           type="text"
           value={month}
           onChange={(e) => setMonth(e.target.value)}
@@ -50,12 +54,15 @@ const UserInputForm = ({ onDateSubmit }) => {
           <option value="November" />
           <option value="December" />
         </datalist>
-      </label>
-      <button type="submit">Submit</button>
+      </div>
+      <div className="submit-container">
+        <button type="submit" className="submit-button">Submit</button>
+      </div>
     </form>
   );
 };
 
 export default UserInputForm;
+
 
 

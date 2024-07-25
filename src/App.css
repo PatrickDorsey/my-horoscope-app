@@ -63,7 +63,7 @@
 .zodiac-container {
   position: absolute;
   top: calc(50% + 420px); /* Adjust vertical position */
-  left: 70%;
+  left: 75%;
   transform: translate(-50%, -50%);
   width: 50px; /* Adjust as needed */
   height: 50px; /* Adjust as needed */
@@ -136,4 +136,33 @@
   margin-bottom: 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+/* src/App.css */
+
+.zodiac-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background for contrast */
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.zodiac-nav-item {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.zodiac-nav-item:hover {
+  color: #ffd700; /* Highlight color on hover */
 }

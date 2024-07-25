@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import ZodiacSign from './components/ZodiacSign';
 import HoroscopeResult from './components/HoroscopeResult';
@@ -48,13 +47,15 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (!selectedSign) {
-      setSpeechMessage("Welcome to our horoscope app. Please choose a sign.");
-    } else if (selectedSign) {
+    if (loading) return; 
+    
+    if (selectedSign === null) {
+      setSpeechMessage("Lets get jiggy wit it na na naw. Please choose a zodiac sign or enter your birthdate.");
+    } else {
       setSpeechMessage(selectedSign.description);
-      setStopSpeech(false);
     }
-  }, [selectedSign]);
+    setStopSpeech(false); 
+  }, [selectedSign, loading]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -70,17 +71,19 @@ const App = () => {
   }, []);
 
   const handleSignClick = (sign) => {
-    setSelectedSign(sign);
-    setPlayMusic(false);
-    setIsRotating(false);
-    setStopSpeech(true);
-  };
-
+    setStopSpeech(true); 
+    setTimeout(() => {
+      setSelectedSign(sign);
+      setPlayMusic(true); 
+      setIsRotating(false);
+    }, 100); 
+  }
   const handleBackClick = () => {
-    setSelectedSign(null);
-    setPlayMusic(true);
-    setIsRotating(true);
-    setStopSpeech(true);
+    setStopSpeech(true); 
+    setTimeout(() => {
+      setSelectedSign(null);
+      setPlayMusic(true); 
+    }, 100); 
   };
 
   const handleDateSubmit = (day, month) => {
@@ -100,16 +103,29 @@ const App = () => {
       const startMonth = monthToNumber[startMonthName];
       const endMonth = monthToNumber[endMonthName];
 
-      const startDate = new Date(2023, startMonth, parseInt(startDay, 10));
-      const endDate = new Date(2023, endMonth, parseInt(endDay, 10));
+      let startDate = new Date(2023, startMonth, parseInt(startDay, 10));
+      let endDate = new Date(2023, endMonth, parseInt(endDay, 10));
 
-      return inputDate >= startDate && inputDate <= endDate;
+      if (startMonth > endMonth) {
+        if (inputDate >= startDate || inputDate <= endDate) {
+          return true;
+        }
+      } else {
+        if (inputDate >= startDate && inputDate <= endDate) {
+          return true;
+        }
+      }
+
+      return false;
     });
 
     if (sign) {
-      setSelectedSign(sign);
-      setSpeechMessage(sign.description);
-      setStopSpeech(false);
+      setStopSpeech(true);
+      setTimeout(() => {
+        setSelectedSign(sign);
+        setSpeechMessage(sign.description);
+        setStopSpeech(false); 
+      }, 100); 
     } else {
       alert('No zodiac sign found for the given date.');
     }
@@ -128,7 +144,6 @@ const App = () => {
       <div className={`background-image ${isRotating ? 'background-image-rotating' : 'background-image-fixed'} ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className={`background-image-second-fixed ${selectedSign ? 'background-image-hidden' : ''}`}></div>
       <div className="app-content" style={{ backgroundColor: selectedSign ? selectedSign.color : 'transparent' }}>
-        {/* Navigation Panel */}
         <nav className="zodiac-navigation">
           {zodiacSigns.map((sign) => (
             <button 
@@ -171,3 +186,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
