@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import './ZodiacSign.css'; // Ensure this CSS file includes your styles
+import './ZodiacSign.css'; 
 
 const ZodiacSign = ({ sign, onClick, style }) => {
   const nameRef = useRef(null);

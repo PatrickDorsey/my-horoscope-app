@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-/* Styling for background images */
+
 .background-image {
   position: absolute;
   top: 0;
@@ -15,33 +15,33 @@
   background-size: cover;
   background-position: center;
   z-index: 0;
-  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  transition: opacity 0.5s ease; 
 }
 
-/* Second fixed background image */
+
 .background-image-second-fixed {
-  background-image: url('/images/underimage.jpg'); /* Path to the second fixed background image */
-  z-index: -1; /* Ensure it stays below other background images */
+  background-image: url('/images/underimage.jpg'); 
+  z-index: -1; 
 }
 
-/* Rotating background image */
+
 .background-image-rotating {
-  background-image: url('/images/horoscope.jpg'); /* Path to the rotating background image */
+  background-image: url('/images/horoscope.jpg'); 
   animation: rotateBackground 30s linear infinite;
 }
 
-/* Fixed background image */
+
 .background-image-fixed {
-  background-image: url('/images/shebad.jpg'); /* Path to the fixed background image */
+  background-image: url('/images/shebad.jpg');
 }
 
-/* Hidden background images */
+
 .background-image-hidden {
   opacity: 0;
-  pointer-events: none; /* Ensure no interaction when hidden */
+  pointer-events: none; 
 }
 
-/* Keyframes for rotating background image */
+
 @keyframes rotateBackground {
   from {
     transform: rotate(0deg);
@@ -51,50 +51,50 @@
   }
 }
 
-/* App content styles */
+
 .app-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  transition: background-color 0.5s ease; /* Smooth transition for background color */
+  transition: background-color 0.5s ease; 
 }
 
-/* Zodiac container for displaying zodiac signs */
+
 .zodiac-container {
   position: absolute;
-  top: calc(50% + 420px); /* Adjust vertical position */
+  top: calc(50% + 420px); 
   left: 75%;
   transform: translate(-50%, -50%);
-  width: 50px; /* Adjust as needed */
-  height: 50px; /* Adjust as needed */
+  width: 50px; 
+  height: 50px; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Individual zodiac sign styles */
+
 .zodiac-sign {
   position: absolute;
-  width: 100px; /* Adjust width as needed */
+  width: 100px; 
   height: auto;
   text-align: center;
-  margin: 20px; /* Added margin for spacing */
+  margin: 20px; 
   cursor: pointer;
 }
 
-/* Image styling for zodiac signs */
+
 .zodiac-image {
-  width: 80px; /* Adjust width as needed */
+  width: 80px; 
   height: auto;
 }
 
-/* Zodiac name styling */
+
 .zodiac-name {
-  margin-top: 10px; /* Space between image and name */
+  margin-top: 10px; 
   font-weight: bold;
 }
 
-/* Circle layout styles for zodiac signs */
+
 .zodiac-sign:nth-child(1) { transform: rotate(0deg) translateX(400px) rotate(0deg); }
 .zodiac-sign:nth-child(2) { transform: rotate(30deg) translateX(400px) rotate(-30deg); }
 .zodiac-sign:nth-child(3) { transform: rotate(60deg) translateX(400px) rotate(-60deg); }
@@ -108,26 +108,25 @@
 .zodiac-sign:nth-child(11) { transform: rotate(300deg) translateX(400px) rotate(-300deg); }
 .zodiac-sign:nth-child(12) { transform: rotate(330deg) translateX(400px) rotate(-330deg); }
 
-/* Styling for the result display */
+
 .horoscope-result {
   padding: 20px;
-  color: #fff; /* Text color to ensure readability on colored background */
+  color: #fff; 
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s ease; /* Smooth transition for background color */
+  transition: background-color 0.5s ease; 
 }
 
-/* Image styling for the result display */
 .horoscope-image {
   width: 150px;
   height: auto;
   margin-bottom: 20px;
 }
 
-/* Back button styling */
+
 .back-button {
   background-color: #007bff;
   color: white;
@@ -137,15 +136,14 @@
   cursor: pointer;
   border-radius: 5px;
 }
-/* src/App.css */
+
 
 .zodiac-navigation {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background for contrast */
-  color: white;
+  background-color: rgba(0, 0, 0, 0.7); 
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -164,5 +162,5 @@
 }
 
 .zodiac-nav-item:hover {
-  color: #ffd700; /* Highlight color on hover */
+  color: #ffd700; 
 }

@@ -10,7 +10,7 @@
   position: absolute;
   top:250px;
   right: 1165px;
-  z-index: 3; /* Ensure the form is above background images */
+  z-index: 3; 
 }
 
 .user-input-form label {

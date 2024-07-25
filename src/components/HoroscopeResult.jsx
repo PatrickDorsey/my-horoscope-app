@@ -16,7 +16,7 @@ const HoroscopeResult = ({ sign, onBack }) => {
     }
   }, [description]);
 
-  // Inline style for background image
+  
   const containerStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: 'center 38%',
